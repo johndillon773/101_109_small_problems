@@ -1,5 +1,5 @@
 # even numbers
 
-(1..99).each do |number|
-  puts number if number.even?
+(1..99).each do |num|
+  puts num if num.even?
 end

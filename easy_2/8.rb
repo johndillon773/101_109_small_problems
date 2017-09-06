@@ -1,29 +1,28 @@
 # sum or product of consecutive integers
 
-# -ask for a positive integer
-# -get and store response
-# -ask for sum or product
-# -get and store response
-# -if sum
-#  -loop from 1 to number, adding all numbers
-# -if product
-#  -loop from 1 to number, multiplying all numbers
-# -print result
+int = 0
+operation = ''
 
 puts '>> Please enter an integer greater than 0:'
-int = gets.chomp.to_i
 
-puts ">> Enter 's' to compute the sum, 'p' to compute the product."
-operation = gets.chomp.downcase
-
-if operation == 's'
-  result = 0
-  (1..int).each { |num| result += num }
-  result_type = 'sum'
-elsif operation == 'p'
-  result = 1
-  (1..int).each { |num| result *= num }
-  result_type = 'product'
+loop do
+  int = gets.chomp.to_i
+  break if int.to_s.to_i == int && int > 0
+  puts '>> Invalid entry, please enter a positive integer:'
 end
 
-puts "The #{result_type} of the integers between 1 and #{int} is #{result}."
+puts ">> Enter 's' to compute the sum, 'p' to compute the product:"
+
+loop do
+  operation = gets.chomp.downcase
+  break if operation == 's' || operation == 'p'
+  puts ">> Invalid entry, please enter 's' or 'p':"
+end
+
+if operation == 's'
+  result = (1..int).reduce(:+)
+  puts "The sum of the integers between 1 and #{int} is #{result}."
+elsif operation == 'p'
+  result = (1..int).reduce(:*)
+  puts "The product of the integers between 1 and #{int} is #{result}."
+end

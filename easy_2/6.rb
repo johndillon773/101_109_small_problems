@@ -1,5 +1,5 @@
 # odd numbers
 
-(1..99).each do |number|
-  puts number if number.odd?
+(1..99).each do |num|
+  puts num if num.odd?
 end

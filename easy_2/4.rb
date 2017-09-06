@@ -1,14 +1,18 @@
-# when will i retire?
+# when will i retire
+
+#calculate retirement year
+
+#calculate years remaining
 
 print 'What is your age? '
-age = gets.chomp.to_i
+current_age = gets.to_i
 
 print 'At what age would you like to retire? '
-retire_age = gets.chomp.to_i
+retirement_age = gets.to_i
 
-year = Time.new.year
-years_left = retire_age - age
-retire_year = year + years_left
+current_year = Time.now.year
+years_remaining = (retirement_age - current_age)
+retirement_year = (current_year + years_remaining)
 
-puts "It's #{year}. You will retire in #{retire_year}."
-puts "You have only #{years_left} years of work to go!"
+puts "It's #{current_year}. You will retire in #{retirement_year}."
+puts "You only have #{years_remaining} years of work to go!"
